@@ -1,0 +1,112 @@
+// What is react:-
+// React is a javascript library used to build rich user interface(UI) in webpages or webapps.
+
+// What is the features:-
+
+//Components based architecture --> The small-small chunks of layout like header, footer, aside, section to make a complex website
+//Single page appication --> There is only one index.html page where all the components renders inside the index.html page
+//JSX -->(javascript XML)--> Can write html,css and js together in one page.
+//Virtual Dom --> It is a copy of real dom that use to update the only nodes which is changed dynamically. It doesn't reload the complete dom that's why it is faster compare to load the pages in real dom.
+ 
+ When any nodes is updated by the user or events then react doen't render the elements directly to the dom. 
+ first it makes a virtual dom then update only those nodes which is changed or updated. This is happended by diffing algorithm.Then after change the node in virual dom, it updates the real dom.
+ This whole process is called reconciliation.
+
+// Highly Scalable and optimization.
+
+Drawbacks:
+// Doesn't have good seo (if use third party Helmet)
+// Unidirectional
+
+///////////////////////////////////////////////////////////////////////////////////////
+
+// How many ways to make a components?
+1. Class Components --> Not used by developer because of this keyword which is very complicated
+2. Functional Components --> It supports hooks and very easy to debug and write in clean way.
+
+////////////////////////////////////////////////////////////////////////////////////
+
+How to install and run the project?
+
+// npm create vite@latest app-name
+// npm install packages (like react-router-dom, .env, bootstrap, formik, react-slicker, react-tostify, redux, react-redux)
+// npm run dev (to start the react app)
+// npm run build (to make the production level app)
+
+/////////////////////////////////////////////
+
+In javascript if we want to redirect from one pages to another pages then we used anchor tag <a href=""><a/>
+but in react we can't use the anchor tag. Instead of that we have react-router-dom packages which provides 
+the routing behaviour in easy way. 
+// First install the react-router-dom packages
+// then it provides <BrowserRouter><App/><BrowserRouter/>. It will wrap the whole application and give accessbility in entire app
+// then <Routes> <Route path="/" element={<Home/>}/> <Routes/>. Routes will wrap the whole Route tag. This Route tag has two arguments. 
+1. path 2. element. 
+
+// Link tag is used to perform like an anchor tag. but instead of href, it uses to="same path value in Route". to value attributes is same as path value in Route.
+// nevigation()
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+Types of hook:-
+1. useState()--> This is a function which is local scope or local state of comaponents. Whatever any changes/updates inside the components then it use this hook. It doesn't render the entire web pages.
+2. useEffect()--> This is used to handle the side effects of the comaponents.Ex. If any data comes from outside of the webpaes like fetching the data then it use to reload the whole pages.
+                  It uses the whole life-cycle method of the webapps/webpages. Like--> Mounting, Updating, Unmounting
+                  It has two parameter 1. call back 2. dependency list []
+                  It run every first time of the reloading of the pages--> called mounting phase
+                  If we data to show the data after fetchng the outer api then it run according to the dependency list
+                  1. Without dependency list --> It render the data infinity times means it runs continously
+                  2. Empty dependency list --> It runs only one time after fetching the data and stop the execution
+                  3. If we want to run useEffect according to the events then we have to pass the state inside the dependency list
+                  Like if i wanted to give the access of the features after payment then i will use the useState()
+                  let [isDone,setIsDone]=useState(false)
+
+                  useEffect(()=>{
+                     handelPayment()
+                  },[isDone])
+                       let handelPayment = ()=>{
+                           if(isPayment=="true"){
+                            setIsDone(true)
+                           }
+                       }
+
+                  <button onClick={handelPayment}>Click<button/>
+
+3. useReducer() -->
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+Lazy-loading--> It is used to increase the optimization performance. If any "A1" heavy data which takes the time to load then other element "A2" will wait to complete the "A1" task.
+                The website will slow and user experinece might be not good. So we use lazy loading.
+                It load the data "A1" behind the screen and another data "A2" load without waiting the completion of "A1" task.
+  // How to use it?
+
+  The data/components which takes time to load like 10mb data 
+  let data = React.lazy(()=>import data from "./components/Data.jsx") // lazy is return the promise and it loads the data behind the screen
+
+
+  <Suspense fallback={<h1>Loading...<h1/>}>  // Suspense will show the fallback data like "Loading..." before loading the components/data to the screen.
+   <data/>
+  <Suspense>
+  <A2/>
+
+
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  What is debouncing?
+  // Debouncing is the process when some events is happening like scroll, window events, click,hover,page change. To delay the process for a moment is called debouncing.
+  // To prevent the instance action, we use setTimeout and clearTimeout
+
+  function debouce(fn,delay){
+    clearTimeout(delay);
+
+    setTimeout(()=>{
+        fn
+    },200)
+  }
+// It is used to hover in and hover out mostly.
+
+
+
+
+
