@@ -72,7 +72,20 @@ Types of hook:-
 
                   <button onClick={handelPayment}>Click<button/>
 
-3. useReducer() -->
+3. useReducer() --> It is same as useState() hook but it is used to manage the complex state within a components.
+                    Ex. Payment processing. 
+    The syntax is :-
+    const [state,dispatch] = useReducer(reducerFnc,intialState);
+    here 
+    1. state--> To manage or update the state.
+    2. dispatch --> When action happens then dispatch will send the type and payload to the reducerFnc.
+                    type will take the type of action and payload will take the data after action.
+                    Means when user perform action then dispatch will send the data from one place to another in the form of type and payload.
+    3. reducerFnc--> It is pure js function which does not have any side effect. 
+                     It takes two parameter. 1. state 2. action
+                     state is to update the state after perform the action.
+                     action has type and payload which is sent by dispatch.
+    4. initialState--> It is initial value of the state.
 
 ///////////////////////////////////////////////////////////////////////////////////////////
 
