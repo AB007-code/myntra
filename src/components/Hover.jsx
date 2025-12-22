@@ -5,7 +5,7 @@ const Hover = ({ activeCategory }) => {
   console.log(activeCategory);
   return (
     <>
-      <div className="flex border justify-center z-0">
+      <div className="flex justify-center z-0">
         <div className="w-full h-100 bg-white">{activeCategory}</div>
       </div>
     </>

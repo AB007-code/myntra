@@ -28,23 +28,23 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="h-20">
+      <div className="h-20 relative">
         <div className="h-20 flex justify-center shadow-xl fixed w-full bg-white">
           <div className="lg:w-1/9 md:w-1/10 flex justify-center flex-wrap content-center">
             <img src={logo} className="lg:h-3/5 lg:w-2/4 md:h-3/5 md:w-3/5" />
           </div>
-          <div className="lg:w-2/3 h-full flex md:w-2/5 relative">
+          <div className="lg:w-2/3 h-full flex md:w-2/5 ">
             {arr.map((ele) => (
               <div
                 onMouseEnter={() => enterMouse(ele)}
                 onMouseLeave={() => leaveMouse()}
                 key={ele}
-                className="flex border cursor-pointer flex-wrap  content-center justify-center size-19 font-bold lg:text-sm md:text-xs text-gray-700"
+                className="flex cursor-pointer h-full flex-wrap  content-center justify-center size-19 font-bold lg:text-sm md:text-xs text-gray-700"
               >
                 {ele}
 
                 <div
-                  className={`fixed left-8/100 top-19.5 lg:h-100 lg:w-84/100 z-50 ${
+                  className={`fixed left-8/100 top-20 lg:h-100 w-84/100 z-50 ${
                     enter && item == ele ? "visible" : "invisible"
                   }`}
                 >
@@ -52,6 +52,9 @@ const Navbar = () => {
                 </div>
               </div>
             ))}
+            {enter && (
+              <div className="absolute top-20 left-0 h-screen w-full z-0 bg-black/40 opacity-50"></div>
+            )}
           </div>
           <div className="lg:w-2/5 md:w-2/5 h-full px-2 grid place-items-center">
             <div
