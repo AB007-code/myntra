@@ -12,20 +12,24 @@ const Navbar = () => {
   const [enter, isEnter] = useState(false);
   const [item, setItem] = useState("");
   const [activeCategory, setActiveCategory] = useState("");
-
+  const [profile, setProfile] = useState(false);
   const enterMouse = (str) => {
     isEnter(true);
     setItem(str);
-    // console.log(activeCategory);
     setActiveCategory(str);
   };
 
   const leaveMouse = () => {
     isEnter(false);
     setItem("");
-    // setActiveCategory("");
   };
 
+  const enterProfileMouse = () => {
+    setProfile(true);
+  };
+  const leaveProfileMouse = () => {
+    setProfile(false);
+  };
   return (
     <>
       <div className="h-20 relative">
@@ -44,7 +48,7 @@ const Navbar = () => {
                 {ele}
 
                 <div
-                  className={`fixed left-8/100 top-20 lg:h-100 w-84/100 z-50 ${
+                  className={`absolute left-8/100 top-20 lg:h-100 w-84/100 z-50 ${
                     enter && item == ele ? "visible" : "invisible"
                   }`}
                 >
@@ -75,12 +79,25 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <div className="w-1/5 px-4 h-full grid grid-cols-3 lg:gap-5 md:gap-4 place-items-center">
-            <div className="col-span-1">
+          <div className="w-1/5 px-4 h-full grid grid-cols-3 lg:gap-5 md:gap-4 place-items-center ">
+            <div
+              className="col-span-1 h-full content-center cursor-pointer"
+              onMouseEnter={enterProfileMouse}
+              onMouseLeave={leaveProfileMouse}
+            >
               <div className="flex justify-center">
                 <UserIcon className="lg:h-5 lg:w-5 md:h-4 md:w-4 text-gray-600" />
               </div>
-              <div className="text-xs font-bold">Profile</div>
+              <div className="text-xs font-bold ">Profile</div>
+              {profile && (
+                <div className="absolute top-20 bg-white lg:right-8 md:right-5 lg:w-[20%] md:w-[24%] h-100 z-70 shadow-[5px_5px_5px_5px_rgba(0,0,0,0.06)]">
+                  {
+                    <div className="flex justify-center">
+                      <div className="border-t-4 border-amber-300 w-1/4 "></div>{" "}
+                    </div>
+                  }
+                </div>
+              )}
             </div>
             <div className="col-span-1">
               <div className="flex justify-center">
