@@ -90,10 +90,28 @@ const Navbar = () => {
               </div>
               <div className="text-xs font-bold ">Profile</div>
               {profile && (
-                <div className="absolute top-20 bg-white lg:right-8 md:right-5 lg:w-[20%] md:w-[24%] h-100 z-70 shadow-[5px_5px_5px_5px_rgba(0,0,0,0.06)]">
+                <div className="absolute top-19 bg-white lg:right-4 md:right-5 lg:w-[22%] md:w-[24%] h-100 z-70 shadow-lg">
                   {
-                    <div className="flex justify-center">
-                      <div className="border-t-4 border-amber-300 w-1/4 "></div>{" "}
+                    <div className="h-full">
+                      <div className="flex justify-center">
+                        <div className="border-t-4 border-amber-300 w-1/5 "></div>{" "}
+                      </div>
+                      <div className="h-full p-4">
+                        <div className="border h-full">
+                          <p className="lg:text-[14px] md:text-[12px] text-[#3e4152] not-italic font-bold">
+                            Welcome
+                          </p>
+                          <div>
+                            <p className="text-[rgb(40, 44, 63)] lg:text-[14px] md:text-[11px] font-normal">
+                              To access account and manage orders
+                            </p>
+                          </div>
+
+                          <button className="border cursor-pointer border-gray-300 px-4 py-2 mt-2 lg:text-sm md:text-xs text-[#FF3F6C] font-bold hover:border-red-500">
+                            LOGIN / SIGNUP
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   }
                 </div>
