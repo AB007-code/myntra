@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
+import "../App.css";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import { UserIcon } from "@heroicons/react/24/solid";
 import { HeartIcon } from "@heroicons/react/24/outline";
@@ -12,7 +13,7 @@ const Navbar = () => {
   const [enter, isEnter] = useState(false);
   const [item, setItem] = useState("");
   const [activeCategory, setActiveCategory] = useState("");
-  const [profile, setProfile] = useState(false);
+  //   const [profile, setProfile] = useState(false);
   const enterMouse = (str) => {
     isEnter(true);
     setItem(str);
@@ -24,16 +25,16 @@ const Navbar = () => {
     setItem("");
   };
 
-  const enterProfileMouse = () => {
-    setProfile(true);
-  };
-  const leaveProfileMouse = () => {
-    setProfile(false);
-  };
+  //   const enterProfileMouse = () => {
+  //     setProfile(true);
+  //   };
+  //   const leaveProfileMouse = () => {
+  //     setProfile(false);
+  //   };
   return (
     <>
       <div className="h-20 relative">
-        <div className="h-20 flex justify-center shadow-xl fixed w-full bg-white">
+        <div className="h-20 flex justify-center shadow-md fixed w-full bg-white">
           <div className="lg:w-1/9 md:w-1/10 flex justify-center flex-wrap content-center">
             <img src={logo} className="lg:h-3/5 lg:w-2/4 md:h-3/5 md:w-3/5" />
           </div>
@@ -81,83 +82,95 @@ const Navbar = () => {
           </div>
           <div className="w-1/5 px-4 h-full grid grid-cols-3 lg:gap-5 md:gap-4 place-items-center ">
             <div
-              className="col-span-1 h-full content-center cursor-pointer"
-              onMouseEnter={enterProfileMouse}
-              onMouseLeave={leaveProfileMouse}
+              className="col-span-1 h-full content-center hoverCard"
+              //   onMouseEnter={enterProfileMouse}
+              //   onMouseLeave={leaveProfileMouse}
             >
               <div className="flex justify-center">
                 <UserIcon className="lg:h-5 lg:w-5 md:h-4 md:w-4 text-gray-600" />
               </div>
-              <div className="text-xs font-bold ">Profile</div>
-              {profile && (
-                <div className="absolute top-19 bg-white lg:right-4 md:right-5 lg:w-[22%] md:w-[24%] h-110 z-70 shadow-lg">
-                  {
-                    <div className="h-full">
-                      <div className="flex justify-center">
-                        <div className="border-t-4 border-amber-300 w-1/5 "></div>{" "}
-                      </div>
-                      <div className="h-full p-4">
-                        <div className="h-full grid grid-rows-3">
-                          <div className="col-span-full  flex flex-col flex-wrap content-start">
-                            <p className="lg:text-[14px] md:text-[12px] text-[#3e4152] not-italic font-bold">
-                              Welcome
+              <div className="text-xs font-bold">Profile</div>
+              {/* {profile &&  */}
+
+              <div className="absolute top-19 bg-white lg:right-4 md:right-5 lg:w-[22%] md:w-[24%] h-110 z-70 shadow-lg hoverProfile">
+                {
+                  <div className="h-full">
+                    <div className="flex justify-center">
+                      <div className="border-t-4 border-amber-300 w-1/5 "></div>{" "}
+                    </div>
+                    <div className="h-full p-4">
+                      <div className="h-full grid grid-rows-3">
+                        <div className="col-span-full  flex flex-col flex-wrap content-start">
+                          <p className="lg:text-[14px] md:text-[12px] text-[#3e4152] not-italic font-bold">
+                            Welcome
+                          </p>
+                          <div>
+                            <p className="text-[rgb(40, 44, 63)] lg:text-[14px] md:text-[11px] font-normal">
+                              To access account and manage orders
                             </p>
-                            <div>
-                              <p className="text-[rgb(40, 44, 63)] lg:text-[14px] md:text-[11px] font-normal">
-                                To access account and manage orders
-                              </p>
-                            </div>
-
-                            <div>
-                              <button className="border mb-6 mt-4 cursor-pointer border-gray-300 px-4 py-2 lg:text-sm md:text-xs text-[#FF3F6C] font-bold hover:border-red-500">
-                                LOGIN / SIGNUP
-                              </button>
-                            </div>
-                            <div className="w-full">
-                              <hr className=" border-gray-300" />
-                            </div>
                           </div>
 
-                          <div className="col-span-full flex flex-col justify-between">
-                            <div>
-                              <ul className="text-[14px]">
-                                <li className="hover:font-bold">Orders</li>
-                                <li className="hover:font-bold my-1">
-                                  Wishlist
-                                </li>
-                                <li className="hover:font-bold">Gift Cards</li>
-                                <li className="hover:font-bold my-1">
-                                  Contact Us
-                                </li>
-                                <li className="hover:font-bold">
-                                  Myntra Insider
-                                </li>
-                              </ul>
-                            </div>
-                            <div>
-                              <hr className=" border-gray-300" />
-                            </div>
+                          <div>
+                            <button className="border mb-6 mt-4 cursor-pointer border-gray-300 px-4 py-2 lg:text-sm md:text-xs text-[#FF3F6C] font-bold hover:border-red-500">
+                              LOGIN / SIGNUP
+                            </button>
                           </div>
+                          <div className="w-full">
+                            <hr className=" border-gray-300" />
+                          </div>
+                        </div>
 
-                          <div className="col-span-full mt-2">
+                        <div className="col-span-full flex flex-col justify-between">
+                          <div>
                             <ul className="text-[14px]">
-                              <li className="hover:font-bold">Myntra Credit</li>
-                              <li className="hover:font-bold  my-1">Coupons</li>
-                              <li className="hover:font-bold">Saved Cards</li>
-                              <li className="hover:font-bold  my-1">
-                                Saved VPA
+                              <li className="hover:font-bold cursor-pointer">
+                                Orders
                               </li>
-                              <li className="hover:font-bold">
-                                Saved Addresses
+                              <li className="hover:font-bold my-1 cursor-pointer">
+                                Wishlist
+                              </li>
+                              <li className="hover:font-bold cursor-pointer">
+                                Gift Cards
+                              </li>
+                              <li className="hover:font-bold my-1 cursor-pointer">
+                                Contact Us
+                              </li>
+                              <li className="hover:font-bold cursor-pointer">
+                                Myntra Insider
                               </li>
                             </ul>
                           </div>
+                          <div>
+                            <hr className=" border-gray-300" />
+                          </div>
+                        </div>
+
+                        <div className="col-span-full mt-2">
+                          <ul className="text-[14px]">
+                            <li className="hover:font-bold cursor-pointer">
+                              Myntra Credit
+                            </li>
+                            <li className="hover:font-bold  my-1 cursor-pointer">
+                              Coupons
+                            </li>
+                            <li className="hover:font-bold cursor-pointer">
+                              Saved Cards
+                            </li>
+                            <li className="hover:font-bold  my-1 cursor-pointer">
+                              Saved VPA
+                            </li>
+                            <li className="hover:font-bold cursor-pointer">
+                              Saved Addresses
+                            </li>
+                          </ul>
                         </div>
                       </div>
                     </div>
-                  }
-                </div>
-              )}
+                  </div>
+                }
+              </div>
+
+              {/* } */}
             </div>
             <div className="col-span-1">
               <div className="flex justify-center">
