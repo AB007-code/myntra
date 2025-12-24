@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import logo from "../assets/logo.png";
 import "../App.css";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
@@ -14,10 +14,14 @@ const Navbar = () => {
   const [item, setItem] = useState("");
   const [activeCategory, setActiveCategory] = useState("");
   //   const [profile, setProfile] = useState(false);
+  let timer = useRef(null);
   const enterMouse = (str) => {
+    if (timer.current) clearTimeout(timer.current);
+    timer.current = setTimeout(() => {
+      setItem(str);
+      setActiveCategory(str);
+    }, 200);
     isEnter(true);
-    setItem(str);
-    setActiveCategory(str);
   };
 
   const leaveMouse = () => {
@@ -98,7 +102,7 @@ const Navbar = () => {
                     <div className="flex justify-center">
                       <div className="border-t-4 border-amber-300 w-1/5 "></div>{" "}
                     </div>
-                    <div className="h-full p-4">
+                    <div className="h-full px-5 py-3">
                       <div className="h-full grid grid-rows-3">
                         <div className="col-span-full  flex flex-col flex-wrap content-start">
                           <p className="lg:text-[14px] md:text-[12px] text-[#3e4152] not-italic font-bold">
