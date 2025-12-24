@@ -90,26 +90,68 @@ const Navbar = () => {
               </div>
               <div className="text-xs font-bold ">Profile</div>
               {profile && (
-                <div className="absolute top-19 bg-white lg:right-4 md:right-5 lg:w-[22%] md:w-[24%] h-100 z-70 shadow-lg">
+                <div className="absolute top-19 bg-white lg:right-4 md:right-5 lg:w-[22%] md:w-[24%] h-110 z-70 shadow-lg">
                   {
                     <div className="h-full">
                       <div className="flex justify-center">
                         <div className="border-t-4 border-amber-300 w-1/5 "></div>{" "}
                       </div>
                       <div className="h-full p-4">
-                        <div className="border h-full">
-                          <p className="lg:text-[14px] md:text-[12px] text-[#3e4152] not-italic font-bold">
-                            Welcome
-                          </p>
-                          <div>
-                            <p className="text-[rgb(40, 44, 63)] lg:text-[14px] md:text-[11px] font-normal">
-                              To access account and manage orders
+                        <div className="h-full grid grid-rows-3">
+                          <div className="col-span-full  flex flex-col flex-wrap content-start">
+                            <p className="lg:text-[14px] md:text-[12px] text-[#3e4152] not-italic font-bold">
+                              Welcome
                             </p>
+                            <div>
+                              <p className="text-[rgb(40, 44, 63)] lg:text-[14px] md:text-[11px] font-normal">
+                                To access account and manage orders
+                              </p>
+                            </div>
+
+                            <div>
+                              <button className="border mb-6 mt-4 cursor-pointer border-gray-300 px-4 py-2 lg:text-sm md:text-xs text-[#FF3F6C] font-bold hover:border-red-500">
+                                LOGIN / SIGNUP
+                              </button>
+                            </div>
+                            <div className="w-full">
+                              <hr className=" border-gray-300" />
+                            </div>
                           </div>
 
-                          <button className="border cursor-pointer border-gray-300 px-4 py-2 mt-2 lg:text-sm md:text-xs text-[#FF3F6C] font-bold hover:border-red-500">
-                            LOGIN / SIGNUP
-                          </button>
+                          <div className="col-span-full flex flex-col justify-between">
+                            <div>
+                              <ul className="text-[14px]">
+                                <li className="hover:font-bold">Orders</li>
+                                <li className="hover:font-bold my-1">
+                                  Wishlist
+                                </li>
+                                <li className="hover:font-bold">Gift Cards</li>
+                                <li className="hover:font-bold my-1">
+                                  Contact Us
+                                </li>
+                                <li className="hover:font-bold">
+                                  Myntra Insider
+                                </li>
+                              </ul>
+                            </div>
+                            <div>
+                              <hr className=" border-gray-300" />
+                            </div>
+                          </div>
+
+                          <div className="col-span-full mt-2">
+                            <ul className="text-[14px]">
+                              <li className="hover:font-bold">Myntra Credit</li>
+                              <li className="hover:font-bold  my-1">Coupons</li>
+                              <li className="hover:font-bold">Saved Cards</li>
+                              <li className="hover:font-bold  my-1">
+                                Saved VPA
+                              </li>
+                              <li className="hover:font-bold">
+                                Saved Addresses
+                              </li>
+                            </ul>
+                          </div>
                         </div>
                       </div>
                     </div>
