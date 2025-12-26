@@ -24,24 +24,24 @@ const Navbar = () => {
       setItem(str);
       for (let key in data) {
         if (key == str) {
-          setActiveCategory(data[key]);
+          setActiveCategory({ ...data[key], ["name"]: key, ["color"]: color });
         }
       }
+    }, 100);
 
-      if (str == "MEN") {
-        setColor("#EE5F73");
-      } else if (str == "WOMEN") {
-        setColor("#FB56C1");
-      } else if (str == "KIDS") {
-        setColor("#F26A10");
-      } else if (str == "BEAUTY") {
-        setColor("#0DB7AF");
-      } else if (str == "HOME") {
-        setColor("#F2C210");
-      } else if (str == "GENZ") {
-        setColor("#0DB7AF");
-      }
-    }, 200);
+    if (str == "MEN") {
+      setColor("#EE5F73");
+    } else if (str == "WOMEN") {
+      setColor("#FB56C1");
+    } else if (str == "KIDS") {
+      setColor("#F26A10");
+    } else if (str == "BEAUTY") {
+      setColor("#0DB7AF");
+    } else if (str == "HOME") {
+      setColor("#F2C210");
+    } else if (str == "GENZ") {
+      setColor("#0DB7AF");
+    }
 
     console.log(color);
     isEnter(true);
@@ -76,16 +76,16 @@ const Navbar = () => {
                 onMouseEnter={() => enterMouse(ele)}
                 onMouseLeave={() => leaveMouse()}
                 key={ele}
-                className="cursor-pointer hover:transition-border delay-50 duration-50 motion-reduce:delay-0 ease-in-out  lg:h-12 lg:w-1/7 md:w-1/7 px-1 md:h-12 flex justify-center font-bold lg:text-sm md:text-xs text-gray-700"
+                className="cursor-pointer lg:h-12 lg:w-1/7 md:w-1/7 px-1 md:h-12 flex justify-center font-bold lg:text-sm md:text-xs text-gray-700"
               >
                 {ele}
 
                 <div
-                  className={`absolute left-8/100 top-20 lg:h-100 w-84/100 z-50 ${
+                  className={`absolute lg:left-8/100 md:left-2/100 top-20 lg:h-110 md:h-110 border lg:w-84/100 md:w-96/100 z-50 ${
                     enter && item == ele ? "visible" : "invisible"
                   }`}
                 >
-                  <Hover activeCategory={activeCategory} />
+                  {ele == item && <Hover activeCategory={activeCategory} />}
                 </div>
               </div>
             ))}
