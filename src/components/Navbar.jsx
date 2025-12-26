@@ -81,7 +81,7 @@ const Navbar = () => {
                 {ele}
 
                 <div
-                  className={`absolute lg:left-8/100 md:left-2/100 top-20 lg:h-110 md:h-110 border lg:w-84/100 md:w-96/100 z-50 ${
+                  className={`absolute lg:left-8/100 md:left-2/100 top-20 lg:h-110 md:h-110 lg:w-84/100 md:w-96/100 z-50 ${
                     enter && item == ele ? "visible" : "invisible"
                   }`}
                 >
