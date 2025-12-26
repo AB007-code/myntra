@@ -76,7 +76,7 @@ const Navbar = () => {
                 onMouseEnter={() => enterMouse(ele)}
                 onMouseLeave={() => leaveMouse()}
                 key={ele}
-                className="cursor-pointer  lg:h-12 lg:w-1/7 md:w-1/7 px-1 md:h-12 flex justify-center font-bold lg:text-sm md:text-xs text-gray-700"
+                className="cursor-pointer hover:transition-border delay-50 duration-50 motion-reduce:delay-0 ease-in-out  lg:h-12 lg:w-1/7 md:w-1/7 px-1 md:h-12 flex justify-center font-bold lg:text-sm md:text-xs text-gray-700"
               >
                 {ele}
 
