@@ -6,26 +6,50 @@ import { UserIcon } from "@heroicons/react/24/solid";
 import { HeartIcon } from "@heroicons/react/24/outline";
 import { ShoppingBagIcon } from "@heroicons/react/24/outline";
 import Hover from "./Hover";
+import data from "../Data.json";
 
 const arr = ["MEN", "WOMEN", "KIDS", "HOME", "BEAUTY", "GENZ", "STUDIO"];
 const Navbar = () => {
+  //   console.log(data);
   const [isTrue, setTrue] = useState(false);
   const [enter, isEnter] = useState(false);
   const [item, setItem] = useState("");
   const [activeCategory, setActiveCategory] = useState("");
+  const [color, setColor] = useState("white");
   //   const [profile, setProfile] = useState(false);
   let timer = useRef(null);
   const enterMouse = (str) => {
     if (timer.current) clearTimeout(timer.current);
     timer.current = setTimeout(() => {
       setItem(str);
-      setActiveCategory(str);
+      for (let key in data) {
+        if (key == str) {
+          setActiveCategory(data[key]);
+        }
+      }
+
+      if (str == "MEN") {
+        setColor("#EE5F73");
+      } else if (str == "WOMEN") {
+        setColor("#FB56C1");
+      } else if (str == "KIDS") {
+        setColor("#F26A10");
+      } else if (str == "BEAUTY") {
+        setColor("#0DB7AF");
+      } else if (str == "HOME") {
+        setColor("#F2C210");
+      } else if (str == "GENZ") {
+        setColor("#0DB7AF");
+      }
     }, 200);
+
+    console.log(color);
     isEnter(true);
   };
 
   const leaveMouse = () => {
     isEnter(false);
+    setColor("white");
     setItem("");
   };
 
@@ -42,13 +66,17 @@ const Navbar = () => {
           <div className="lg:w-1/9 md:w-1/10 flex justify-center flex-wrap content-center">
             <img src={logo} className="lg:h-3/5 lg:w-2/4 md:h-3/5 md:w-3/5" />
           </div>
-          <div className="lg:w-2/3 h-full flex md:w-2/5 ">
+          <div className="lg:w-2/3 h-full flex md:w-2/4 justify-between flex-wrap content-end-safe">
             {arr.map((ele) => (
               <div
+                style={{
+                  borderBottom:
+                    enter && item === ele ? `3px solid ${color}` : "none",
+                }}
                 onMouseEnter={() => enterMouse(ele)}
                 onMouseLeave={() => leaveMouse()}
                 key={ele}
-                className="flex cursor-pointer h-full flex-wrap  content-center justify-center size-19 font-bold lg:text-sm md:text-xs text-gray-700"
+                className="cursor-pointer  lg:h-12 lg:w-1/7 md:w-1/7 px-1 md:h-12 flex justify-center font-bold lg:text-sm md:text-xs text-gray-700"
               >
                 {ele}
 
